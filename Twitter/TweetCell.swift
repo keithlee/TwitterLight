@@ -13,17 +13,19 @@ class TweetCell: UITableViewCell {
     
     var tweet: Tweet? {
         didSet {
-            if let profileImageUrl = tweet?.user?.profileImageUrl {
-                profilePictureView.setImageWith(URL(string: profileImageUrl)!)
+            if let profileImageUrl = tweet?.user.profileImageUrl {
+                profileImageView.setImageWith(URL(string: profileImageUrl)!)
+                profileImageView.layer.cornerRadius = 5
+                profileImageView.clipsToBounds = true
             }
-            nameLabel.text = tweet?.user?.name
-            screenNameLabel.text = tweet?.user?.screenName
+            nameLabel.text = tweet?.user.name
+            screenNameLabel.text = tweet?.user.screenName
             tweetLabel.text = tweet?.text
             timestampLabel.text = tweet?.createdAt
         }
     }
 
-    @IBOutlet weak var profilePictureView: UIImageView!
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var tweetLabel: UILabel!

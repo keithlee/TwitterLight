@@ -22,6 +22,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(TweetsViewController.refreshControlAction), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,14 +64,20 @@ class TweetsViewController: UIViewController, UITableViewDataSource {
         cell.tweet = self.tweets[indexPath.row]
         return cell
     }
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "TweetSegue" {
+            let tweetCell = sender as! TweetCell
+            let indexPath = tableView.indexPath(for: tweetCell)
+            let tweet = tweets[indexPath!.row]
+            
+            let vc = segue.destination as! TweetViewController
+            vc.tweet = tweet
+        }
     }
-    */
 
 }

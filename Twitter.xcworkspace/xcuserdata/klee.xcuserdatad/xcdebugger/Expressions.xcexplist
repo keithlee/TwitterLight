@@ -3,6 +3,12 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "TweetsViewController.(viewDidLoad() -&gt; ()).(closure #1):TweetsViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "User.(homeTimeline(completionHandler : ([Tweet]?, Error?) -&gt; ()) -&gt; ()).(closure #1):User.swift">
+      </ContextState>
+      <ContextState
          contextName = "User.init(dictionary : NSDictionary) -&gt; User:User.swift">
          <PersistentStrings>
             <PersistentString
@@ -11,7 +17,28 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TweetsViewController.(viewDidLoad() -&gt; ()).(closure #1):TweetsViewController.swift">
+         contextName = "Tweet.retweet(onSuccess : () -&gt; (), onFailure : (Error?) -&gt; ()) -&gt; ():Tweet.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "&quot;https://api.twitter.com/1.1/statuses/retweet/\(self.id).json&quot;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static Utils.convert(date : String) -&gt; String:Utils.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "formatter.dateFormat">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Tweet.init(dictionary : NSDictionary) -&gt; Tweet:Tweet.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dictionary[&quot;id&quot;]">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>
