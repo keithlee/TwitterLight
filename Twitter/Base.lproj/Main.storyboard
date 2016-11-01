@@ -205,28 +205,31 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tfL-gw-xdp">
-                                <rect key="frame" x="0.0" y="112" width="375" height="274"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jd-mI-MtW">
                                 <rect key="frame" x="64" y="68" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tfL-gw-xdp">
+                                <rect key="frame" x="16" y="120" width="343" height="539"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Lbf-Gh-OUa" firstAttribute="top" secondItem="qBN-63-etW" secondAttribute="bottom" constant="8" id="9Iu-ws-3vX"/>
                             <constraint firstItem="3jd-mI-MtW" firstAttribute="leading" secondItem="Lbf-Gh-OUa" secondAttribute="trailing" constant="8" id="FPD-Q5-2LV"/>
+                            <constraint firstItem="tfL-gw-xdp" firstAttribute="leading" secondItem="xhg-DP-Mvl" secondAttribute="leadingMargin" id="Jua-Hd-7v1"/>
                             <constraint firstItem="san-su-SIJ" firstAttribute="top" secondItem="3jd-mI-MtW" secondAttribute="bottom" constant="2" id="K7O-4k-b2L"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tfL-gw-xdp" secondAttribute="trailing" id="KLA-Wv-LMS"/>
+                            <constraint firstItem="udf-5X-4wE" firstAttribute="top" secondItem="tfL-gw-xdp" secondAttribute="bottom" constant="8" id="MRT-eK-yh8"/>
                             <constraint firstItem="Lbf-Gh-OUa" firstAttribute="leading" secondItem="xhg-DP-Mvl" secondAttribute="leadingMargin" id="XrZ-1a-UkX"/>
                             <constraint firstItem="3jd-mI-MtW" firstAttribute="top" secondItem="qBN-63-etW" secondAttribute="bottom" constant="4" id="ntU-Yw-oad"/>
                             <constraint firstItem="san-su-SIJ" firstAttribute="leading" secondItem="Lbf-Gh-OUa" secondAttribute="trailing" constant="8" id="riR-c8-wvo"/>
+                            <constraint firstItem="tfL-gw-xdp" firstAttribute="top" secondItem="Lbf-Gh-OUa" secondAttribute="bottom" constant="8" id="zFd-jl-D2p"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tweet" id="S92-gi-eJp">
@@ -250,17 +253,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hmB-AT-Wuq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3969" y="-425"/>
+            <point key="canvasLocation" x="3968.5" y="-425.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="imY-0R-4iy">
             <objects>
                 <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="pI8-Ya-mg7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3tF-iR-VlV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3tF-iR-VlV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.47843137254901957" green="0.72218209505081177" blue="0.92194658517837524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.47843137254901957" green="0.72218209505081177" blue="0.92194658517837524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -280,11 +285,12 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P8p-3G-npD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4kx-em-MR9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4kx-em-MR9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.47650700807571411" green="0.72218209505081177" blue="0.92194658517837524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.47843137250000001" green="0.72218209509999998" blue="0.92194658519999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -478,6 +484,6 @@
         <image name="Retweet" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jqR-rP-LQc"/>
+        <segue reference="d9d-13-0TK"/>
     </inferredMetricsTieBreakers>
 </document>
