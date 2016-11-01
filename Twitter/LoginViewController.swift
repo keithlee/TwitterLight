@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func login(_ sender: UIButton) {
+        let twitterClient = TwitterClient.sharedInstance
+        twitterClient.login(onSuccess: { () -> Void in
+            print("Success")
+            self.performSegue(withIdentifier: "ShowTweetsSegue", sender: self)
+        }, onFailure: { (error: Error?) -> Void in
+            print("error")
+        })
+    }
 
 }
 
