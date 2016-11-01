@@ -34,11 +34,11 @@ class TwitterClient: BDBOAuth1SessionManager {
             self.current_account(completionHandler: { (user: User?, error: Error?) in
                 if let user = user {
                     User.currentUser = user
+                    self.onLoginSuccess?()
                 } else {
                     self.onLoginFailure(error)
                 }
             })
-            self.onLoginSuccess?()
         }) { (error: Error?) in
             self.onLoginFailure?(error)
         }
