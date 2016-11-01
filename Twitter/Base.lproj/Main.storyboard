@@ -305,7 +305,7 @@
             </objects>
             <point key="canvasLocation" x="3121" y="-425"/>
         </scene>
-        <!--Tweet View Controller-->
+        <!--Tweet-->
         <scene sceneID="ZLk-eX-g6J">
             <objects>
                 <viewController id="iFb-Sv-ndy" customClass="TweetViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
@@ -455,7 +455,7 @@
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="pun-og-khA" secondAttribute="trailing" constant="8" id="s7g-Wm-yI5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="biU-9B-EYf">
+                    <navigationItem key="navigationItem" title="Tweet" id="biU-9B-EYf">
                         <barButtonItem key="rightBarButtonItem" title="Reply" id="NsZ-1w-dks">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -484,6 +484,6 @@
         <image name="Retweet" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d9d-13-0TK"/>
+        <segue reference="jqR-rP-LQc"/>
     </inferredMetricsTieBreakers>
 </document>
