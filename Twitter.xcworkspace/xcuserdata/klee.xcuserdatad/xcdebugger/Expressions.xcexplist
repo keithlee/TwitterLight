@@ -3,16 +3,35 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "TweetsViewController.(viewDidLoad() -&gt; ()).(closure #1):TweetsViewController.swift">
+         contextName = "Tweet.init(dictionary : NSDictionary) -&gt; Tweet:Tweet.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dictionary[&quot;id&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TweetsViewController.loadTweets(callback : () -&gt; ()) -&gt; ():TweetsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "User.currentUser">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "User.(homeTimeline(completionHandler : ([Tweet]?, Error?) -&gt; ()) -&gt; ()).(closure #1):User.swift">
       </ContextState>
       <ContextState
-         contextName = "User.init(dictionary : NSDictionary) -&gt; User:User.swift">
+         contextName = "TweetViewController.viewDidLoad() -&gt; ():TweetViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TweetsViewController.(viewDidLoad() -&gt; ()).(closure #1):TweetsViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static Utils.convert(date : String) -&gt; String:Utils.swift">
          <PersistentStrings>
             <PersistentString
-               value = "dictionary">
+               value = "formatter.dateFormat">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -25,18 +44,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static Utils.convert(date : String) -&gt; String:Utils.swift">
+         contextName = "User.init(dictionary : NSDictionary) -&gt; User:User.swift">
          <PersistentStrings>
             <PersistentString
-               value = "formatter.dateFormat">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Tweet.init(dictionary : NSDictionary) -&gt; Tweet:Tweet.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "dictionary[&quot;id&quot;]">
+               value = "dictionary">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
