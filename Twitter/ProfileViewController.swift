@@ -20,6 +20,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerProfileImageView: UIImageView!
     @IBOutlet weak var headerBackgroundImageView: UIImageView!
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var screenNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +41,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         headerProfileImageView.setImageWith(URL(string: user.profileImageUrl)!)
+        headerProfileImageView.layer.cornerRadius = 7
+        headerProfileImageView.clipsToBounds = true
         headerBackgroundImageView.setImageWith(URL(string: user.profileBackgroundImage)!)
+        headerLabel.text = user.name
+        screenNameLabel.text = user.screenName
     }
    
     func loadTweets(callback: @escaping (() -> ()) = {}) {
