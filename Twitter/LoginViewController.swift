@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
         let twitterClient = TwitterClient.sharedInstance
         twitterClient.login(onSuccess: { () -> Void in
             print("Success")
-            self.performSegue(withIdentifier: "ShowTweetsSegue", sender: self)
+            self.performSegue(withIdentifier: "ShowHamburgerSegue", sender: self)
         }, onFailure: { (error: Error?) -> Void in
             print("error")
         })

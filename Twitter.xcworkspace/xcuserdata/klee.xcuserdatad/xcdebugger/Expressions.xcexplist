@@ -3,10 +3,29 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "Tweet.init(dictionary : NSDictionary) -&gt; Tweet:Tweet.swift">
+         contextName = "User.init(dictionary : NSDictionary) -&gt; User:User.swift">
          <PersistentStrings>
             <PersistentString
-               value = "dictionary[&quot;id&quot;]">
+               value = "dictionary">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HamburgerViewController.contentViewController.didset:HamburgerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "contentViewController.view">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TweetCell.tweet.didset:TweetCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "URL(string: profileImageUrl)!">
+            </PersistentString>
+            <PersistentString
+               value = "URL(string: profileImageUrl)!)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -23,6 +42,9 @@
       </ContextState>
       <ContextState
          contextName = "TweetViewController.viewDidLoad() -&gt; ():TweetViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ProfileViewController.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:ProfileViewController.swift">
       </ContextState>
       <ContextState
          contextName = "TweetsViewController.(viewDidLoad() -&gt; ()).(closure #1):TweetsViewController.swift">
@@ -44,10 +66,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "User.init(dictionary : NSDictionary) -&gt; User:User.swift">
+         contextName = "Tweet.init(dictionary : NSDictionary) -&gt; Tweet:Tweet.swift">
          <PersistentStrings>
             <PersistentString
-               value = "dictionary">
+               value = "dictionary[&quot;id&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

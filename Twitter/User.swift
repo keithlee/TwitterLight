@@ -16,6 +16,11 @@ class User: NSObject, NSCoding {
     var name: String!
     var profileImageUrl: String!
     var screenName: String!
+    var profileBackgroundImage: String!
+    var followersCount: Int!
+    var followingCount: Int!
+    var favoritesCount: Int!
+    var tweetCount: Int!
     
     static var _currentUser: User?
     
@@ -25,6 +30,11 @@ class User: NSObject, NSCoding {
         name = dictionary["name"] as? String
         profileImageUrl = dictionary["profile_image_url"] as? String
         screenName = "@\((dictionary["screen_name"] as! String))"
+        profileBackgroundImage = dictionary["profile_background_image_url_https"] as? String
+        followersCount = dictionary["followers_count"] as! Int
+        favoritesCount = dictionary["favourites_count"] as! Int
+        followingCount = dictionary["friends_count"] as! Int
+        tweetCount = dictionary["statuses_count"] as! Int
     }
     
     class var currentUser: User? {
@@ -64,6 +74,18 @@ class User: NSObject, NSCoding {
     
     func homeTimeline(completionHandler: @escaping (_ tweets: [Tweet]?, _ error: Error?) -> ()){
         TwitterClient.sharedInstance.get("https://api.twitter.com/1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
+            
+            let dictionaries = response as! [NSDictionary]
+            let tweets = Tweet.tweetsAsArray(dictionaryArray: dictionaries)
+            completionHandler(tweets, nil)
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            completionHandler(nil, error)
+            print(error.localizedDescription)
+        })
+    }
+    
+    func mentionsTimeline(completionHandler: @escaping (_ tweets: [Tweet]?, _ error: Error?) -> ()){
+        TwitterClient.sharedInstance.get("https://api.twitter.com/1.1/statuses/mentions_timeline.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
             
             let dictionaries = response as! [NSDictionary]
             let tweets = Tweet.tweetsAsArray(dictionaryArray: dictionaries)

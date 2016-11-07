@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         if User.currentUser != nil {
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-            self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
+            self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HamburgerViewController")
         } else {
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             self.window?.rootViewController = storyboard.instantiateInitialViewController()

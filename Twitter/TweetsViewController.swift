@@ -9,9 +9,15 @@
 import UIKit
 import FTIndicator
 
+enum Timeline {
+    case home
+    case mentions
+}
+
 class TweetsViewController: UIViewController, UITableViewDataSource {
     
     var tweets = [Tweet]()
+    var timelineState: Timeline! = .home
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -19,11 +25,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
         
         loadTweets()
+        FTIndicator.dismissProgress()
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(TweetsViewController.refreshControlAction), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
+        tableView.register(TweetCell.self, forCellReuseIdentifier: "TweetCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,15 +45,29 @@ class TweetsViewController: UIViewController, UITableViewDataSource {
     
     func loadTweets(callback: @escaping (() -> ()) = {}) {
         FTIndicator.showProgressWithmessage("")
-        User.currentUser!.homeTimeline { (tweets: [Tweet]?, error: Error?) in
-            FTIndicator.dismissProgress()
-            callback()
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                self.tweets = tweets!
+        if timelineState == Timeline.home {
+            User.currentUser!.homeTimeline { (tweets: [Tweet]?, error: Error?) in
+                FTIndicator.dismissProgress()
+                callback()
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    self.tweets = tweets!
+                }
+                self.tableView.reloadData()
             }
-            self.tableView.reloadData()
+        } else if timelineState == Timeline.mentions {
+            User.currentUser!.mentionsTimeline { (tweets: [Tweet]?, error: Error?) in
+                FTIndicator.dismissProgress()
+                callback()
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    self.tweets = tweets!
+                }
+                self.tableView.reloadData()
+            }
+            
         }
     }
     
