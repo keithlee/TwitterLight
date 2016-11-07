@@ -390,6 +390,9 @@
                         <rightBarButtonItems>
                             <barButtonItem title="New" id="eNX-DV-TgW">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="P8p-3G-npD" kind="presentation" id="Ahg-zg-9he"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem title="Search" id="3Ra-UZ-VU5">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -665,7 +668,7 @@
         <image name="Retweet" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Ahg-zg-9he"/>
         <segue reference="GJo-xN-WD9"/>
-        <segue reference="d9d-13-0TK"/>
     </inferredMetricsTieBreakers>
 </document>
