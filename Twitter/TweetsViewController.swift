@@ -14,7 +14,7 @@ enum Timeline {
     case mentions
 }
 
-class TweetsViewController: UIViewController, UITableViewDataSource {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var tweets = [Tweet]()
     var timelineState: Timeline! = .home
@@ -23,6 +23,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         
         loadTweets()
         FTIndicator.dismissProgress()
@@ -31,7 +32,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource {
         tableView.insertSubview(refreshControl, at: 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
-        tableView.register(TweetCell.self, forCellReuseIdentifier: "TweetCell")
+        tableView.register(UINib(nibName: "TweetCell", bundle: nil), forCellReuseIdentifier: "TweetCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,22 +82,35 @@ class TweetsViewController: UIViewController, UITableViewDataSource {
         return tweets.count
     }
     
+    func handleImageTap(_ sender: UITapGestureRecognizer) {
+        let imageView = sender.view
+        let cell = imageView?.superview?.superview as! TweetCell
+        let pvc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        pvc.user = cell.tweet?.user
+        pvc.navigationItem.leftItemsSupplementBackButton = true
+        navigationController?.pushViewController(pvc, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell") as! TweetCell
         cell.tweet = self.tweets[indexPath.row]
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleImageTap(_:)))
+        cell.profileImageView.addGestureRecognizer(gestureRecognizer)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "TimelineShowTweetSegue", sender: tweets[indexPath.row])
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "TweetSegue" {
-            let tweetCell = sender as! TweetCell
-            let indexPath = tableView.indexPath(for: tweetCell)
-            let tweet = tweets[indexPath!.row]
-            
+        if segue.identifier == "TimelineShowTweetSegue" {
+            let tweet = sender as! Tweet
             let vc = segue.destination as! TweetViewController
             vc.tweet = tweet
         }

@@ -9,7 +9,7 @@
 import UIKit
 import FTIndicator
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     var user: User!
     var tweets: [Tweet]! = [Tweet]()
@@ -18,6 +18,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var tweetCountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var headerProfileImageView: UIImageView!
+    @IBOutlet weak var headerBackgroundImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +32,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         loadTweets()
-        followersCountLabel.text = "\(user.followersCount)"
-        followingCountLabel.text = "\(user.followingCount)"
-        tweetCountLabel.text = "\(user.tweetCount)"
+        followersCountLabel.text = String(user.followersCount)
+        followingCountLabel.text = String(user.followingCount)
+        tweetCountLabel.text = String(user.tweetCount)
+        tableView.register(UINib(nibName: "TweetCell", bundle: nil), forCellReuseIdentifier: "TweetCell")
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+        headerProfileImageView.setImageWith(URL(string: user.profileImageUrl)!)
+        headerBackgroundImageView.setImageWith(URL(string: user.profileBackgroundImage)!)
     }
    
     func loadTweets(callback: @escaping (() -> ()) = {}) {
@@ -48,14 +55,30 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             self.tableView.reloadData()
         }
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets.count
+    }
+    
+    func handleImageTap(_ sender: UITapGestureRecognizer) {
+        let imageView = sender.view
+        let cell = imageView?.superview?.superview as! TweetCell
+        let pvc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        pvc.user = cell.tweet?.user
+        pvc.navigationItem.leftItemsSupplementBackButton = true
+        navigationController?.pushViewController(pvc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
         cell.tweet = tweets[indexPath.row]
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleImageTap(_:)))
+        cell.profileImageView.addGestureRecognizer(gestureRecognizer)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ShowTweetSegue", sender: tweets[indexPath.row])
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,6 +90,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowTweetSegue" {
+            let tweet = sender as! Tweet
+            let vc = segue.destination as! TweetViewController
+            vc.tweet = tweet
+        }
     }
 
 }

@@ -11,6 +11,11 @@ import Foundation
 private let kName = "name"
 private let kProfileImage = "profileImageUrl"
 private let kScreenName = "screenName"
+private let kFollowersCount = "followersCount"
+private let kFollowingCount = "followingCount"
+private let kFavoritesCount = "favoritesCount"
+private let kProfileBackgroundImage = "profileBackgroundImage"
+private let kTweetCount = "tweetCount"
 
 class User: NSObject, NSCoding {
     var name: String!
@@ -39,6 +44,9 @@ class User: NSObject, NSCoding {
     
     class var currentUser: User? {
         get {
+            if let _currentUser = _currentUser {
+                return _currentUser
+            }
             let userDefaults = UserDefaults.standard
             if let userData = userDefaults.object(forKey: kUser) {
                 let user = NSKeyedUnarchiver.unarchiveObject(with: userData as! Data) as! User
@@ -63,12 +71,22 @@ class User: NSObject, NSCoding {
         aCoder.encode(name, forKey: kName)
         aCoder.encode(profileImageUrl, forKey: kProfileImage)
         aCoder.encode(screenName, forKey: kScreenName)
+        aCoder.encode(followingCount, forKey: kFollowingCount)
+        aCoder.encode(followersCount, forKey: kFollowersCount)
+        aCoder.encode(favoritesCount, forKey: kFavoritesCount)
+        aCoder.encode(tweetCount, forKey: kTweetCount)
+        aCoder.encode(profileBackgroundImage, forKey: kProfileBackgroundImage)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        name = aDecoder.decodeObject(forKey: kName) as! String!
-        profileImageUrl = aDecoder.decodeObject(forKey: kProfileImage) as! String!
-        screenName = aDecoder.decodeObject(forKey: kScreenName) as! String!
+        name = aDecoder.decodeObject(forKey: kName) as! String
+        profileImageUrl = aDecoder.decodeObject(forKey: kProfileImage) as! String
+        screenName = aDecoder.decodeObject(forKey: kScreenName) as! String
+        followingCount = aDecoder.decodeObject(forKey: kFollowingCount) as! Int
+        followersCount = aDecoder.decodeObject(forKey: kFollowersCount) as! Int
+        favoritesCount = aDecoder.decodeObject(forKey: kFavoritesCount) as! Int
+        tweetCount = aDecoder.decodeObject(forKey: kTweetCount) as! Int
+        profileBackgroundImage = aDecoder.decodeObject(forKey: kProfileBackgroundImage) as! String
     }
     
     

@@ -3,18 +3,16 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "ProfileViewController.viewDidLoad() -&gt; ():ProfileViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TweetsViewController.(viewDidLoad() -&gt; ()).(closure #1):TweetsViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "User.init(dictionary : NSDictionary) -&gt; User:User.swift">
          <PersistentStrings>
             <PersistentString
                value = "dictionary">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "HamburgerViewController.contentViewController.didset:HamburgerViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "contentViewController.view">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -41,13 +39,18 @@
          contextName = "User.(homeTimeline(completionHandler : ([Tweet]?, Error?) -&gt; ()) -&gt; ()).(closure #1):User.swift">
       </ContextState>
       <ContextState
+         contextName = "Tweet.init(dictionary : NSDictionary) -&gt; Tweet:Tweet.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dictionary[&quot;id&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TweetViewController.viewDidLoad() -&gt; ():TweetViewController.swift">
       </ContextState>
       <ContextState
          contextName = "ProfileViewController.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:ProfileViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "TweetsViewController.(viewDidLoad() -&gt; ()).(closure #1):TweetsViewController.swift">
       </ContextState>
       <ContextState
          contextName = "static Utils.convert(date : String) -&gt; String:Utils.swift">
@@ -58,6 +61,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TweetsViewController.handleImageTap(UITapGestureRecognizer) -&gt; ():TweetsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender.view.superview.superview as! TweetCell">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TweetsViewController.handleImageTap(AnyObject) -&gt; ():TweetsViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "Tweet.retweet(onSuccess : () -&gt; (), onFailure : (Error?) -&gt; ()) -&gt; ():Tweet.swift">
          <PersistentStrings>
             <PersistentString
@@ -66,10 +80,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Tweet.init(dictionary : NSDictionary) -&gt; Tweet:Tweet.swift">
+         contextName = "HamburgerViewController.contentViewController.didset:HamburgerViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "dictionary[&quot;id&quot;]">
+               value = "contentViewController.view">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

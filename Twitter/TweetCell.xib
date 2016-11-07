@@ -25,7 +25,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jOp-ZZ-gXD">
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jOp-ZZ-gXD">
                         <rect key="frame" x="8" y="8" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="4h2-ME-w4Z"/>
@@ -100,7 +100,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="nameLabel" destination="PHT-Dx-4ue" id="czK-LF-beT"/>
-                <outlet property="profileImageView" destination="jOp-ZZ-gXD" id="Ym7-oA-uLn"/>
+                <outlet property="profileImageView" destination="jOp-ZZ-gXD" id="ysK-QZ-0pZ"/>
                 <outlet property="screenNameLabel" destination="9lU-h5-4SK" id="5f9-BS-qQi"/>
                 <outlet property="timestampLabel" destination="uvM-jH-JXh" id="MSm-3p-Y9N"/>
                 <outlet property="tweetLabel" destination="uwU-z2-aTy" id="LJa-Bf-oa8"/>
