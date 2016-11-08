@@ -16,6 +16,7 @@ private let kFollowingCount = "followingCount"
 private let kFavoritesCount = "favoritesCount"
 private let kProfileBackgroundImage = "profileBackgroundImage"
 private let kTweetCount = "tweetCount"
+private let kId = "id"
 
 class User: NSObject, NSCoding {
     var name: String!
@@ -26,12 +27,14 @@ class User: NSObject, NSCoding {
     var followingCount: Int!
     var favoritesCount: Int!
     var tweetCount: Int!
+    var id: Int
     
     static var _currentUser: User?
     
     static let kUser = "currentUser"
 
     init(dictionary: NSDictionary) {
+        id = dictionary["id"] as! Int
         name = dictionary["name"] as? String
         profileImageUrl = dictionary["profile_image_url"] as? String
         screenName = "@\((dictionary["screen_name"] as! String))"
@@ -68,6 +71,7 @@ class User: NSObject, NSCoding {
     }
     
     func encode(with aCoder: NSCoder) {
+        aCoder.encode(id, forKey: kId)
         aCoder.encode(name, forKey: kName)
         aCoder.encode(profileImageUrl, forKey: kProfileImage)
         aCoder.encode(screenName, forKey: kScreenName)
@@ -79,6 +83,7 @@ class User: NSObject, NSCoding {
     }
     
     required init?(coder aDecoder: NSCoder) {
+        id = aDecoder.decodeObject(forKey: kId) as! Int
         name = aDecoder.decodeObject(forKey: kName) as! String
         profileImageUrl = aDecoder.decodeObject(forKey: kProfileImage) as! String
         screenName = aDecoder.decodeObject(forKey: kScreenName) as! String
@@ -89,6 +94,16 @@ class User: NSObject, NSCoding {
         profileBackgroundImage = aDecoder.decodeObject(forKey: kProfileBackgroundImage) as! String
     }
     
+    func timeline(completionHandler: @escaping (_ tweets: [Tweet]?, _ error: Error?) -> ()){
+        TwitterClient.sharedInstance.get("https://api.twitter.com/1.1/statuses/user_timeline.json", parameters: ["user_id": id], progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
+            let dictionaries = response as! [NSDictionary]
+            let tweets = Tweet.tweetsAsArray(dictionaryArray: dictionaries)
+            completionHandler(tweets, nil)
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            completionHandler(nil, error)
+            print(error.localizedDescription)
+        })
+    }
     
     func homeTimeline(completionHandler: @escaping (_ tweets: [Tweet]?, _ error: Error?) -> ()){
         TwitterClient.sharedInstance.get("https://api.twitter.com/1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in

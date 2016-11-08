@@ -296,7 +296,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIJ-mQ-7W5">
-                                <rect key="frame" x="164" y="233" width="42" height="21"/>
+                                <rect key="frame" x="160.5" y="233" width="54" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -312,7 +312,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dc1-Dj-f3n">
-                                <rect key="frame" x="0.0" y="284.5" width="375" height="382.5"/>
+                                <rect key="frame" x="0.0" y="280.5" width="375" height="386.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" id="iPH-cK-mZ4" customClass="TweetCell" customModule="Twitter" customModuleProvider="target">
@@ -326,7 +326,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUk-Rn-zW4">
-                                <rect key="frame" x="164" y="254" width="54" height="22.5"/>
+                                <rect key="frame" x="160.5" y="254" width="54" height="22.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -338,13 +338,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfT-of-uTY">
-                                <rect key="frame" x="16" y="233.5" width="42" height="20.5"/>
+                                <rect key="frame" x="16" y="233.5" width="38.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwp-Sd-QHN">
-                                <rect key="frame" x="16" y="246" width="40.5" height="38.5"/>
+                                <rect key="frame" x="16" y="250" width="40.5" height="30.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -367,6 +367,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="vmH-Ga-F3Q" secondAttribute="trailing" id="Gqg-19-ByW"/>
                             <constraint firstItem="dc1-Dj-f3n" firstAttribute="top" secondItem="Iwp-Sd-QHN" secondAttribute="bottom" id="HWN-a5-gdq"/>
                             <constraint firstItem="dc1-Dj-f3n" firstAttribute="leading" secondItem="kNZ-Yv-6AQ" secondAttribute="leading" id="KK0-LY-9EV"/>
+                            <constraint firstItem="OIJ-mQ-7W5" firstAttribute="centerX" secondItem="kNZ-Yv-6AQ" secondAttribute="centerX" id="OUu-fe-mvd"/>
                             <constraint firstItem="yUk-Rn-zW4" firstAttribute="centerY" secondItem="Iwp-Sd-QHN" secondAttribute="centerY" id="QdE-oF-dVH"/>
                             <constraint firstItem="yUk-Rn-zW4" firstAttribute="top" secondItem="OIJ-mQ-7W5" secondAttribute="bottom" id="TzU-hU-URu"/>
                             <constraint firstItem="vmH-Ga-F3Q" firstAttribute="centerY" secondItem="yUk-Rn-zW4" secondAttribute="centerY" id="Ybg-wN-2Kt"/>
@@ -374,19 +375,17 @@
                             <constraint firstItem="vmH-Ga-F3Q" firstAttribute="top" secondItem="4N7-nh-L4W" secondAttribute="bottom" id="aWT-5B-pny"/>
                             <constraint firstItem="Iwp-Sd-QHN" firstAttribute="leading" secondItem="kNZ-Yv-6AQ" secondAttribute="leadingMargin" id="amo-pW-dCR"/>
                             <constraint firstItem="OIJ-mQ-7W5" firstAttribute="leading" secondItem="WfT-of-uTY" secondAttribute="trailing" constant="106" id="cgP-pP-pPq"/>
-                            <constraint firstItem="dc1-Dj-f3n" firstAttribute="top" secondItem="yUk-Rn-zW4" secondAttribute="bottom" constant="8" id="dRd-3X-1jz"/>
+                            <constraint firstItem="dc1-Dj-f3n" firstAttribute="top" secondItem="yUk-Rn-zW4" secondAttribute="bottom" constant="4" id="dRd-3X-1jz"/>
                             <constraint firstItem="4N7-nh-L4W" firstAttribute="centerY" secondItem="WfT-of-uTY" secondAttribute="centerY" id="iSp-4K-DX7"/>
                             <constraint firstItem="4N7-nh-L4W" firstAttribute="top" secondItem="fdT-r4-l99" secondAttribute="bottom" id="la8-Jd-Ytz"/>
                             <constraint firstAttribute="trailing" secondItem="fdT-r4-l99" secondAttribute="trailing" id="q4q-Ni-GAc"/>
                             <constraint firstItem="fdT-r4-l99" firstAttribute="top" secondItem="KqX-re-I61" secondAttribute="bottom" id="qD0-3l-kh1"/>
+                            <constraint firstItem="yUk-Rn-zW4" firstAttribute="centerX" secondItem="kNZ-Yv-6AQ" secondAttribute="centerX" id="syw-yH-g6a"/>
                             <constraint firstItem="yUk-Rn-zW4" firstAttribute="leading" secondItem="OIJ-mQ-7W5" secondAttribute="leading" id="u6f-VZ-G3s"/>
                             <constraint firstItem="vmH-Ga-F3Q" firstAttribute="leading" secondItem="4N7-nh-L4W" secondAttribute="leading" id="yoK-Fr-rln"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="lYc-vj-caQ">
-                        <barButtonItem key="leftBarButtonItem" title="Add" id="Hfz-E2-Bl6">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="New" id="eNX-DV-TgW">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

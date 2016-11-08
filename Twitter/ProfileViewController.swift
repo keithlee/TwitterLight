@@ -50,7 +50,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
    
     func loadTweets(callback: @escaping (() -> ()) = {}) {
         FTIndicator.showProgressWithmessage("")
-        user.homeTimeline { (tweets: [Tweet]?, error: Error?) in
+        user.timeline { (tweets: [Tweet]?, error: Error?) in
             FTIndicator.dismissProgress()
             callback()
             if let error = error {
@@ -71,7 +71,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = imageView?.superview?.superview as! TweetCell
         let pvc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
         pvc.user = cell.tweet?.user
-        pvc.navigationItem.leftItemsSupplementBackButton = true
         navigationController?.pushViewController(pvc, animated: true)
     }
     
