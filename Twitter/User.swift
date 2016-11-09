@@ -16,7 +16,7 @@ private let kFollowingCount = "followingCount"
 private let kFavoritesCount = "favoritesCount"
 private let kProfileBackgroundImage = "profileBackgroundImage"
 private let kTweetCount = "tweetCount"
-private let kId = "id"
+private let kId = "userId"
 
 class User: NSObject, NSCoding {
     var name: String!
@@ -27,14 +27,13 @@ class User: NSObject, NSCoding {
     var followingCount: Int!
     var favoritesCount: Int!
     var tweetCount: Int!
-    var id: Int
+    var id: Int!
     
     static var _currentUser: User?
     
     static let kUser = "currentUser"
 
     init(dictionary: NSDictionary) {
-        id = dictionary["id"] as! Int
         name = dictionary["name"] as? String
         profileImageUrl = dictionary["profile_image_url"] as? String
         screenName = "@\((dictionary["screen_name"] as! String))"
@@ -43,6 +42,7 @@ class User: NSObject, NSCoding {
         favoritesCount = dictionary["favourites_count"] as! Int
         followingCount = dictionary["friends_count"] as! Int
         tweetCount = dictionary["statuses_count"] as! Int
+        id = dictionary["id"] as! Int
     }
     
     class var currentUser: User? {
